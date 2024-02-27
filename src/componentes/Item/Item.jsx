@@ -1,22 +1,16 @@
+import { Link, Navigate } from "react-router-dom"
 const Item = ({id,name,price,category,img,stock,description}) =>{
     return (
-        <div>
-            <h1>{name}</h1>
-            <img src={img} style={{width:300}}/>
+    
+        <div className="catalogo">
+            
+            <h1 className="name">{name}</h1>
+            <img src={img} className="imagenDetail"/>
             <h2>${price}</h2>
+            <button className="botonDetalles">< Link to={`/item/${id}`} className="verDetalles">Ver detalle</Link></button>
 
         </div>
     )
 }
 export default Item
 
-
-// {
-//     id:'asdsa',
-//     name: 'asd',
-//     price:'sad',
-//     category:'sdfdsc',
-//     img:'sdfdsc',
-//     stock:'sdfdsc',
-//     description:'sdfdsc',
-// },

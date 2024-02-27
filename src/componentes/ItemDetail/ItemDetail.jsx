@@ -1,5 +1,7 @@
 // import ItemCount from '../ItemCount/ItemCount'
 import { useState } from "react"
+import { useCart } from "../../context/CartContext"
+import { useNotification } from "../../notificacion/NotificationContext"
 
 const InputCount = ({ onAdd, stock, initial= 1 }) => {
     const [count, setCount] = useState(initial)
@@ -47,8 +49,16 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
 
     const ItemCount = inputType === 'button' ? ButtonCount : InputCount
 
-    const handleOnAdd = (quantity) => {
-        console.log(`se agregaron ${quantity} ${name}`)
+    const { addItem, isInCart } = useCart()
+    const { setNotification } = useNotification()
+
+    const handleOnAdd = (quantity) => {       
+        const productToAdd = {
+            id, name, price, quantity
+        }
+
+        addItem(productToAdd)
+        setNotification('error', `Se agregaron ${quantity} ${name}`)
     }
 
     return (
@@ -76,7 +86,13 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                 </p>
             </section>           
             <footer>
-                <ItemCount stock={stock} onAdd={handleOnAdd}/>
+                {
+                    isInCart(id) ? (
+                        <button>Finalizar Compra</button>
+                    ) : (
+                        <ItemCount stock={stock} onAdd={handleOnAdd}/>
+                    )
+                }
             </footer>
         </article>
     )
