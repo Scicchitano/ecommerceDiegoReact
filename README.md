@@ -36,5 +36,5 @@ Este proyecto fue desarrollado por Diego Scicchitano.
 Se adjunta GIF para corroborar funcionalidad. 
 
 
-![](../ecommerceDiego/img/ecommerceReact-Cloud-Firestore-Datos-Firebase-console-Google-Chrome-2024-02-25-20-11-39.gif)
+![](https://github.com/Scicchitano/ecommerceDiegoReact/blob/main/img/ecommerceReact-Cloud-Firestore-Datos-Firebase-console-Google-Chrome-2024-02-25-20-11-39.gif)
 
